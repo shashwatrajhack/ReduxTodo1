@@ -8,12 +8,21 @@ function Home() {
   const [toggle, setToggle] = useState(false);
 
   const addFunction = () => {
+    for (let i = 0; i < todo.length; i++) {
+      if (inputValue.toLowerCase() == todo[i].toLowerCase()) {
+        alert("todo already exist");
+        setInputValue("");
+        return;
+      }
+
+    }
     if (toggle) {
       const todo2 = [...todo];
       todo2[id] = inputValue;
       setTodo(todo2);
       setToggle(false);
-      return
+      setInputValue("");
+      return;
     }
 
     setTodo([...todo, inputValue]);
@@ -28,22 +37,26 @@ function Home() {
   };
 
   const handleUp = (i) => {
-    // [todo[i],todo[i-1]] = [todo[i-1],todo[i]];
-    const todo2 = [...todo];
-    let temp = todo2[i];
-    todo2[i] = todo2[i - 1];
-    todo2[i - 1] = temp;
 
-    setTodo([...todo2]);
+    if (i != 0) {
+      const todo2 = [...todo];
+      let temp = todo2[i];
+      todo2[i] = todo2[i - 1];
+      todo2[i - 1] = temp;
+
+      setTodo([...todo2]);
+    }
   };
 
   const handleDown = (i) => {
-    const todo2 = [...todo];
-    let temp = todo2[i];
-    todo2[i] = todo2[i + 1];
-    todo2[i + 1] = temp;
+    if (i != todo.length - 1) {
+      const todo2 = [...todo];
+      let temp = todo2[i];
+      todo2[i] = todo2[i + 1];
+      todo2[i + 1] = temp;
 
-    setTodo([...todo2]);
+      setTodo([...todo2]);
+    }
   };
 
   const editTodo = (i) => {
@@ -62,14 +75,17 @@ function Home() {
       <button onClick={addFunction} disabled={!inputValue.trim()}>
         {toggle ? "Update" : "Add Todo"}
       </button>
+
       <div>
         {todo.map((x, i) => (
           <li>
             <h3>
               {x} <button onClick={() => editTodo(i)}>edit</button>
               <button onClick={() => deleteFunction(x)}>delete</button>
-              <button onClick={() => handleUp(i)}>up</button>
-              <button onClick={() => handleDown(i)}>down</button>
+              {!!i && <button onClick={() => handleUp(i)}>up</button>}
+              {i != todo.length - 1 && (
+                <button onClick={() => handleDown(i)}>down</button>
+              )}
             </h3>
           </li>
         ))}
