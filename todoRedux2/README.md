@@ -14,23 +14,3 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-
-/*
- Add new task
-	2.	Edit task
-	3.	Delete task
-	4.	Mark task as completed / uncompleted
-	5.	Filter tasks → All / Active / Completed
-	6.	Clear all completed tasks
-	7.	Task counter (e.g., “3 tasks left”)
-	8.	Save tasks in localStorage
-	9.	Responsive design (mobile-friendly)
-    10. Search bar to find tasks
-    // 11. Sub-tasks (nested todos)
-    12. Dark / light mode toggle
-	13. Confirm dialog before delete
-	14. Toast messages for actions (added, deleted, etc.)
-	15. Auto-save feature (only when typing in edit mode)
-    16. Keyboard shortcuts (Enter to add, Esc to cancel)
-*/
