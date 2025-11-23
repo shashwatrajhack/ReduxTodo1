@@ -12,6 +12,7 @@ import {
   clearTodo,
 } from "./features/todo/todoSlice";
 import { useEffect } from "react";
+
 function App() {
   //const [filter, setFilter] = useState("");
   const selector = useSelector((state) => state.inputValue);
@@ -93,3 +94,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,7 +1,7 @@
 /*
-  1.  Add new task
-	2.	Edit task
-	3.	Delete task
+  1.  Add new task -- done
+	2.	Edit task -- done
+	3.	Delete task --- done
 	4.	Mark task as completed / uncompleted
 	5.	Filter tasks dropdown -  / Completed
 	6.	Clear all completed tasks
