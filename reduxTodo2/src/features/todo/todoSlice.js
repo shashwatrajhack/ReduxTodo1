@@ -4,6 +4,8 @@ const initialState = {
   todos: [],
   inputValue: "",
   index: -1,
+  searchInput: "",
+  filteredTodos: [],
 };
 
 export const todoSlice = createSlice({
@@ -19,7 +21,6 @@ export const todoSlice = createSlice({
       } else {
         state.todos.push(obj);
         state.inputValue = "";
-
       }
     },
     removeTodo: (state, action) => {
@@ -32,7 +33,6 @@ export const todoSlice = createSlice({
     editTask: (state, action) => {
       state.index = action.payload;
       state.inputValue = state.todos[state.index].text;
-      console.log(action.payload.text);
     },
     handleUp: (state, action) => {
       let temp = state.todos[action.payload];
@@ -44,6 +44,15 @@ export const todoSlice = createSlice({
       state.todos[action.payload] = state.todos[action.payload + 1];
       state.todos[action.payload + 1] = temp;
     },
+    todoSearch: (state, action) => {
+      state.searchInput = action.payload;
+      state.filteredTodos = state.todos.filter((x) =>
+        x.text.includes(state.searchInput)
+      );
+    },
+    updateFilteredTodo: (state) => {
+      state.filteredTodos = state.todos;
+    },
   },
 });
 
@@ -54,5 +63,7 @@ export const {
   editTask,
   handleUp,
   handleDown,
+  todoSearch,
+  updateFilteredTodo,
 } = todoSlice.actions;
 export default todoSlice.reducer;

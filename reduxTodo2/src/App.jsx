@@ -26,13 +26,21 @@ import {
   editTask,
   handleUp,
   handleDown,
+  todoSearch,
+  updateFilteredTodo,
 } from "./features/todo/todoSlice";
+import { useEffect } from "react";
 
 function App() {
   const selector = useSelector((state) => state.inputValue);
   const todos = useSelector((state) => state.todos);
+  const filteredTodos = useSelector((state) => state.filteredTodos);
   const index = useSelector((state) => state.index);
+  const searchInput = useSelector((state) => state.searchInput);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(updateFilteredTodo());
+  }, [todos]);
   return (
     <>
       <div>
@@ -45,11 +53,21 @@ function App() {
           placeholder="add todo"
           onChange={(e) => dispatch(updateInputValue(e.target.value))}
         />
-        <button onClick={() => dispatch(addTodo())}>{index != -1? "Update":"Add todo"}</button>
+        <button onClick={() => dispatch(addTodo())}>
+          {index != -1 ? "Update" : "Add todo"}
+        </button>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="search todo"
+          value={searchInput}
+          onChange={(e) => dispatch(todoSearch(e.target.value))}
+        />
       </div>
 
       <div>
-        {todos.map((data, i) => (
+        {filteredTodos.map((data, i) => (
           <li key={i}>
             {data.text}
             <button onClick={() => dispatch(removeTodo(data.id))}>
