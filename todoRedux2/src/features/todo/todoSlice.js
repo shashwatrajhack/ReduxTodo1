@@ -9,7 +9,7 @@
 	8.	Save tasks in localStorage--done
 	9.	Responsive design (mobile-friendly)--done
   10. Search bar to find tasks--done
-  11. Sub-tasks (nested todos)
+  11. Sub-tasks (nested todos)--
   12. Dark / light mode toggle
 	13. Confirm dialog before delete
 	14. Toast messages for actions (added, deleted, etc.)

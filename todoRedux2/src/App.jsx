@@ -25,10 +25,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem("todoData", JSON.stringify(todos));
     dispatch(updateFilteredTodo());
-  }, [todos]);
+  }, [todos,dispatch]);
 
   return (
     <>
+    
       <h1>Welcome to Todo From RTK</h1>
       <div>
         <input
