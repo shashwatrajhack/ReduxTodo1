@@ -2,13 +2,13 @@
   1.  Add new task -- done
 	2.	Edit task -- done
 	3.	Delete task --- done
-	4.	Mark task as completed / uncompleted
-	5.	Filter tasks dropdown -  / Completed
+	4.	Mark task as completed / uncompleted--done
+	5.	Filter tasks dropdown -  / Completed--done
 	6.	Clear all completed tasks
-	7.	Task counter (e.g., “3 tasks left”)
-	8.	Save tasks in localStorage
-	9.	Responsive design (mobile-friendly)
-  10. Search bar to find tasks
+	7.	Task counter (e.g., “3 tasks left”)--Done
+	8.	Save tasks in localStorage--done
+	9.	Responsive design (mobile-friendly)--done
+  10. Search bar to find tasks--done
   11. Sub-tasks (nested todos)
   12. Dark / light mode toggle
 	13. Confirm dialog before delete
@@ -104,6 +104,7 @@ export const todoSlice = createSlice({
     },
     clearTodo: (state) => {
       state.filteredTodo = state.todos.filter((x) => x.status != true);
+      state.todos = state.filteredTodo;
     },
   },
 });
